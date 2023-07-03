@@ -26,7 +26,7 @@ def get_solution(board):
 
 
 def xout(board, row, col):
-    """X out spots on a chessboard where non-attacking queens can no longer be played."""
+    """X out spots on a chessboard where non-attacking queens can no longer be placed."""
     n = len(board)
     for i in range(n):
         board[row][i] = 'x'  # X out row
@@ -58,6 +58,12 @@ def recursive_solve(board, row, queens, solutions):
     return solutions
 
 
+def print_solutions(solutions):
+    """Print the solutions."""
+    for sol in solutions:
+        print(sol)
+
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
@@ -73,5 +79,4 @@ if __name__ == "__main__":
 
     board = init_board(N)
     solutions = recursive_solve(board, 0, 0, [])
-    for sol in solutions:
-        print(sol)
+    print_solutions(solutions)
