@@ -1,11 +1,10 @@
-#!/usr/bin/python3
+def write_file(filename="", text=""):
 
-"""Defines a function to count the number of lines in a text file."""
+    """Write a string to a text file (UTF-8) and return the number of characters written."""
 
-def number_of_lines(filename=""):
-    """Return the number of lines in a text file."""
-    lines = 0
-    with open(filename, 'r') as file:
-        for line in file:
-            lines += 1
-    return lines
+    try:
+        with open(filename, 'w', encoding='utf-8') as file:
+            file.write(text)
+            return len(text)
+    except IOError:
+        return 0
